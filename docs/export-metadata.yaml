@@ -1,0 +1,46 @@
+title: Gödsling i nordliga trädgårdar
+subtitle: Praktisk och inspirerande växtnäring för blomrabatter, köksträdgård, buskar
+  och träd
+author: Erland Lindmark
+language: sv
+difficulty: basic
+audience: Trädgårdsodlare med viss erfarenhet
+book_type: textbook
+edition: '1'
+version: 1.0-slutredigering
+date: '2026-05-21'
+rights: All rights reserved
+publisher: ''
+cover_image: assets/cover/cover.png
+identifier: urn:uuid:292a2e9c-5960-4dda-b205-2262aa73c7c3
+creator_role: aut
+subject: Trädgård, gödsling, växtnäring, odling
+description: En praktisk och personlig lärobok om gödsling i nordliga trädgårdar,
+  med balans mellan ekologisk gödsling och mineralgödsel.
+project_slug: godsling-i-nordliga-tradgardar
+chapters:
+- chapters/00-inledning.md
+- chapters/hur-vaxter-anvander-naring-01.md
+- chapters/jorden-grunden-till-all-godsling-02.md
+- chapters/olika-typer-av-godsel-03.md
+- chapters/godsling-av-blomrabatter-och-perenner-04.md
+- chapters/godsling-i-kokstradgarden-05.md
+- chapters/buskar-bar-och-frukttrad-06.md
+- chapters/kompost-tackodling-och-naturliga-kretslopp-07.md
+- chapters/vanliga-misstag-och-felsokning-08.md
+- chapters/arsplan-for-godsling-i-nordliga-tradgardar-09.md
+exports:
+  epub:
+    enabled: true
+    include_text_toc: false
+    airy_layout: true
+    render_markdown_styles: true
+  pdf:
+    enabled: true
+    include_toc_before_introduction: true
+    render_markdown_styles: true
+  docx:
+    enabled: true
+    render_markdown_styles: true
+  markdown:
+    enabled: true
