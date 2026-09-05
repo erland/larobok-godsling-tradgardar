@@ -1,0 +1,44 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out tagged revision
+        uses: actions/checkout@v6
+      - name: Install Python dependency
+        run: python3 -m pip install --disable-pip-version-check pyyaml
+      - name: Install pinned Pandoc
+        uses: pandoc/actions/setup@v1
+        with:
+          version: "3.1.11.1"
+      - name: Install XeLaTeX and fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            texlive-xetex texlive-latex-extra texlive-fonts-recommended \
+            fonts-texgyre lmodern
+      - name: Build EPUB and PDF
+        run: python3 scripts/build_publish.py --output-dir "${RUNNER_TEMP}/book-dist"
+      - name: Create or update GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          if gh release view "${tag}" >/dev/null 2>&1; then
+            gh release upload "${tag}" "${RUNNER_TEMP}"/book-dist/*.epub "${RUNNER_TEMP}"/book-dist/*.pdf --clobber
+          else
+            gh release create "${tag}" "${RUNNER_TEMP}"/book-dist/*.epub "${RUNNER_TEMP}"/book-dist/*.pdf \
+              --title "${tag}" --generate-notes
+          fi

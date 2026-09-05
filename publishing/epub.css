@@ -1,0 +1,50 @@
+body {
+  line-height: 1.5;
+  margin: 5%;
+}
+
+h1, h2, h3 {
+  page-break-after: avoid;
+}
+
+h1.chapter-heading,
+h1:has(.chapter-number) {
+  text-align: center;
+  margin-top: 2em;
+  margin-bottom: 1.2em;
+}
+
+.chapter-number,
+.chapter-title {
+  display: block;
+}
+
+.chapter-number {
+  font-size: 0.8em;
+  font-weight: normal;
+  margin-bottom: 0.35em;
+}
+
+.chapter-separator {
+  display: none;
+}
+
+.chapter-title {
+  font-size: 1.15em;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  border-bottom: 1px solid #999;
+  padding: 0.35em 0.45em;
+  vertical-align: top;
+}
+
+pre, code {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
